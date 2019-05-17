@@ -1,5 +1,4 @@
 const express = require('express');
-const PORT = 3002;
 const app = express();
 
 const spengbab = str => str.split('').map(char => ((Math.random() < 0.5) ? char.toUpperCase() : char)).join('');
@@ -16,7 +15,7 @@ app.post('/', (req, res) => {
   res.send({ response_type: 'in_channel', text: spengbab(req.body.text) });
 });
 
-const server = app.listen(PORT, (error) => {
+const server = app.listen(8080, (error) => {
     if (error) return console.log(`Error: ${error}`);
  
     console.log(`Server listening on port ${server.address().port}`);
