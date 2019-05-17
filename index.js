@@ -5,7 +5,7 @@ const spengbab = str => str.split('').map(char => ((Math.random() < 0.5) ? char.
 
 express()
   .use(express.json())
-  .post('/', (req, res) => {
+  .post('/babify', (req, res) => {
     console.log(req.body);
     if (!req.body.text || !req.body.text.length) {
       res.status(500).send({ response_type: 'ephemeral', text: 'Send a message, dummy' });
@@ -14,5 +14,5 @@ express()
 
     res.send({ response_type: 'in_channel', text: spengbab(req.body.text) });
   })
-  .get('/', (req, res) => res.send({ message: 'hey' }))
+  .get('/', (req, res) => res.send({ message: spengbab('What the hell do you want?') }))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
