@@ -1,0 +1,14 @@
+{
+  "name": "spengbab",
+  "version": "1.0.0",
+  "description": "Spongify your words via a slack command",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Beau August",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
