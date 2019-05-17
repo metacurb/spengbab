@@ -5,7 +5,7 @@ const spengbab = str => str.split('').map(char => ((Math.random() < 0.5) ? char.
 
 app.use(express.json());
 
-app.post('/', (req, res) => {
+app.post('/babify', (req, res) => {
   console.log(req);
   if (!req.body.text || !req.body.text.length) {
     res.status(500).send({ response_type: 'ephemeral', text: 'Send a message, dummy' });
