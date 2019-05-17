@@ -8,6 +8,7 @@ express()
   .post('/babify', (req, res) => {
     console.log(req.body);
     if (!req.body.text || !req.body.text.length) {
+      console.log('No body text')
       res.status(500).send({ response_type: 'ephemeral', text: 'Send a message, dummy' });
       return;
     }
