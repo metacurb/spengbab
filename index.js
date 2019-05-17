@@ -9,8 +9,7 @@ express()
     console.log(req.body);
     if (!req.body.text || !req.body.text.length) {
       console.log('No body text')
-      res.status(500).send({ response_type: 'ephemeral', text: 'Send a message, dummy' });
-      return;
+      return res.status(500).send({ response_type: 'ephemeral', text: 'Send a message, dummy' });
     }
 
     res.send({ response_type: 'in_channel', text: spengbab(req.body.text) });
