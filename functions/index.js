@@ -17,7 +17,7 @@ app.post('/', (req, res) => {
 
   return res.send({
     response_type: 'in_channel',
-    text: spengbab(req.body.text),
+    text: spengbab(req.body.text.toLowerCase()),
   });
 });
 
