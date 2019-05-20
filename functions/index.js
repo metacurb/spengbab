@@ -1,7 +1,16 @@
 const functions = require('firebase-functions');
 const express = require('express')
 
-const spengbab = str => str.split('').map(char => ((Math.random() < 0.5) ? char.toUpperCase() : char)).join('');
+let previousUpper = false;
+
+const spengbab = str => str
+  .split('')
+  .map(char => {
+    if (!/[a-zA-Z]/.test(char)) return char;
+    const newChar = previousUpper ? char.toLowerCase() : char.toUpperCase();
+    previousUpper = !previousUpper;
+    return newChar;
+  }).join('');
 
 const app = express();
 
