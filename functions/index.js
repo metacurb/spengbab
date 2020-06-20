@@ -3,7 +3,9 @@ const express = require('express')
 
 let previousUpper = false;
 
-const spengbab = str => str
+const spengbab = str => String(str)
+  .trim()
+  .toLowerCase()
   .split('')
   .map(char => {
     if (!/[a-zA-Z]/.test(char)) return char;
@@ -17,17 +19,33 @@ const app = express();
 app.use(express.json());
 
 app.post('/', (req, res) => {
-  if (!req.body.text || !req.body.text.trim().length) {
+  const { body: { text, user_id } } = req
+  if (!text || !text.trim().length) {
     return res.status(200).send({
-      response_type: 'ephemeral',
       text: spengbab('I know how to use spengbab\nSend a message, dummy'),
     });
   }
 
   return res.send({
-    response_type: 'in_channel',
-    text: spengbab(req.body.text.toLowerCase()),
-  });
+    blocks: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: spengbab(text)
+        }
+      },
+      {
+        type: 'context',
+        elements: [
+          {
+            type: 'mrkdwn',
+            text: `- <@${user_id}>`
+          }
+        ]
+      }
+    ]
+  })
 });
 
 app.get('/', (req, res) => res.send({
