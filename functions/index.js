@@ -27,6 +27,7 @@ app.post('/', (req, res) => {
   }
 
   return res.send({
+    response_type: 'in_channel',
     blocks: [
       {
         type: 'section',
