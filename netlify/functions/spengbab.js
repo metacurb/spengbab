@@ -1,5 +1,7 @@
 const querystring = require('node:querystring');
 
+let previousUpper = false;
+
 const spengbab = str => String(str)
   .trim()
   .toLowerCase()
