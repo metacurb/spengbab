@@ -23,8 +23,25 @@ exports.handler = async function (event, context) {
   }
 
   await axios.post(response_url, {
-    "text": "Oh hey, this is a fun message in a channel!",
-    "response_type": "in_channel"
+    response_type: "in_channel",
+    blocks: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: spengbab(text)
+        }
+      },
+      {
+        type: 'context',
+        elements: [
+          {
+            type: 'mrkdwn',
+            text: `- <@${user_id}>`
+          }
+        ]
+      }
+    ]
   })
 
   return {
