@@ -13,7 +13,6 @@ const spengbab = str => String(str)
 
 exports.handler = async function (event, context) {
   const { text, user_id } = querystring.parse(event.body)
-  console.log(text, user_id)
 
   if (!text || !text.trim().length) {
     return {
@@ -27,8 +26,8 @@ exports.handler = async function (event, context) {
 		headers: {
 			'Content-type': 'application/json',
 		},
-    body: {
-      response_type: 'ephemeral',
+    body: JSON.stringify({
+      response_type: 'in_channel',
       blocks: [
         {
           type: 'section',
@@ -47,7 +46,7 @@ exports.handler = async function (event, context) {
           ]
         }
       ]
-    }
+    })
   };
 };
 
