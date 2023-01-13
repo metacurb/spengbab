@@ -68,7 +68,13 @@ const spengbab = str => String(str)
   }).join('');
 
 // Initializes your app with your bot token and signing 
-exports.handler = (event, context) => {
-  console.log(event, context)
-}
+exports.handler = async function (event, context) {
+  // your server-side functionality
+  console.log(event)
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ message: "Hello World" }),
+  };
+};
 
