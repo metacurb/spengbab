@@ -13,7 +13,7 @@ const spengbab = str => String(str)
 
 exports.handler = async function (event, context) {
   const { text, user_id } = querystring.parse(event.body)
-  console.log(text. user_id)
+  console.log(text, user_id)
 
   if (!text || !text.trim().length) {
     return {
