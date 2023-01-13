@@ -47,33 +47,4 @@ exports.handler = async function (event, context) {
   return {
     statusCode: 200
   }
-
-  // return {
-  //   statusCode: 200,
-	// 	headers: {
-	// 		'Content-type': 'application/json',
-	// 	},
-  //   body: JSON.stringify({
-  //     response_type: 'in_channel',
-  //     blocks: [
-  //       {
-  //         type: 'section',
-  //         text: {
-  //           type: 'mrkdwn',
-  //           text: spengbab(text)
-  //         }
-  //       },
-  //       {
-  //         type: 'context',
-  //         elements: [
-  //           {
-  //             type: 'mrkdwn',
-  //             text: `- <@${user_id}>`
-  //           }
-  //         ]
-  //       }
-  //     ]
-  //   })
-  // }
 };
-
