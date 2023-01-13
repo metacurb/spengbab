@@ -15,6 +15,11 @@ exports.handler = async function (event, context) {
   const { text, user_id } = querystring.parse(event.body)
   console.log(text, user_id)
 
+  return {
+    statusCode: 200,
+    body: event.body
+  }
+
   if (!text || !text.trim().length) {
     return {
       statusCode: 200,
