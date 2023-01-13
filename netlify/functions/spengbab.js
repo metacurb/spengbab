@@ -1,18 +1,15 @@
 const querystring = require('node:querystring');
 
-let previousUpper = false;
-
 const spengbab = str => String(str)
   .trim()
   .toLowerCase()
   .split('')
-  .map(char => {
-    if (!/[a-zA-Z]/.test(char)) return char;
-    const newChar = previousUpper ? char.toLowerCase() : char.toUpperCase();
-    previousUpper = !previousUpper;
-    return newChar;
-  }).join('');
-
+  .reduce((acc, char) => {
+    const newUpper = !acc.previousUpper
+    if (!/[a-zA-Z]/.test(char)) return { previousUpper: newUpper, word: `${acc.word}${char}` }
+    const newChar = newUpper ? char.toLowerCase() : char.toUpperCase();
+    return { previousUpper: newUpper, word: `${acc.word}${newChar}` }
+  }, { previousUpper: false, word: '' }).word;
 
 exports.handler = async function (event, context) {
   const { text, user_id } = querystring.parse(event.body)
