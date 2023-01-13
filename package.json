@@ -19,6 +19,7 @@
   "homepage": "https://github.com/BeauAgst/spengbab#readme",
   "dependencies": {
     "@slack/bolt": "^3.12.2",
+    "axios": "^1.2.2",
     "express": "^4.18.2"
   },
   "devDependencies": {

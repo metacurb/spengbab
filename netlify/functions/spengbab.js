@@ -1,4 +1,5 @@
 const querystring = require('node:querystring');
+const axios = require('axios');
 
 const spengbab = str => String(str)
   .trim()
@@ -12,7 +13,7 @@ const spengbab = str => String(str)
   }, { previousUpper: false, word: '' }).word;
 
 exports.handler = async function (event, context) {
-  const { text, user_id } = querystring.parse(event.body)
+  const { channel_id, text, user_id } = querystring.parse(event.body)
 
   if (!text || !text.trim().length) {
     return {
@@ -21,7 +22,9 @@ exports.handler = async function (event, context) {
     }
   }
 
-  return {
+  console.log(event)
+
+  const payload = {
     statusCode: 200,
 		headers: {
 			'Content-type': 'application/json',
@@ -47,6 +50,13 @@ exports.handler = async function (event, context) {
         }
       ]
     })
-  };
+  }
+
+  // await axios.post('https://slack.com/api/chat.delete', {
+  //   channel: channel_id,
+  //   "ts": "MESSAGE_TO_DELETE"
+  // })
+
+  return payload;
 };
 
