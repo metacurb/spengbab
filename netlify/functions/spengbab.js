@@ -24,6 +24,9 @@ exports.handler = async function (event, context) {
 
   return {
     statusCode: 200,
+		headers: {
+			'Content-type': 'application/json',
+		},
     body: {
       response_type: 'ephemeral',
       blocks: [
