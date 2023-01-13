@@ -1,15 +1,27 @@
 {
   "name": "spengbab",
   "version": "1.0.0",
-  "description": "Spongify your words via a slack command",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "dev": "nodemon app.js"
   },
-  "author": "Beau August",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeauAgst/spengbab.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BeauAgst/spengbab/issues"
+  },
+  "homepage": "https://github.com/BeauAgst/spengbab#readme",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "@slack/bolt": "^3.12.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
   }
 }
