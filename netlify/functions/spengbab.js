@@ -12,8 +12,8 @@ const spengbab = str => String(str)
   }, { previousUpper: false, word: '' }).word;
 
 exports.handler = async function (event, context) {
-  console.log(event.body)
   const { text, user_id } = querystring.parse(event.body)
+  console.log(text. user_id)
 
   if (!text || !text.trim().length) {
     return {
