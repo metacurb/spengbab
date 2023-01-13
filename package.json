@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "dev": "nodemon app.js"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BeauAgst/spengbab.git"
@@ -17,13 +15,6 @@
     "url": "https://github.com/BeauAgst/spengbab/issues"
   },
   "homepage": "https://github.com/BeauAgst/spengbab#readme",
-  "dependencies": {
-    "@slack/bolt": "^3.12.2",
-    "axios": "^1.2.2",
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "dotenv": "^16.0.3",
-    "nodemon": "^2.0.20"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
